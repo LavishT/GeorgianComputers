@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome To Lavish Computers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Please select a computer you like </h1>
+<ul>
+    <li>
+        <a asp-controller="Store" asp-action="Details" asp-route-product="Computer 1">Computer 1</a>
+    </li>
+    <li>
+        <a asp-controller="Store" asp-action="Details" asp-route-product="Computer 2">Computer 2</a>
+    </li>
+    <li>
+        <a asp-controller="Store" asp-action="Details" asp-route-product="Computer 3">Computer 3</a>
+    </li>
+    <li>
+        <a asp-controller="Store" asp-action="Details" asp-route-product="Computer 4">Computer 4</a>
+    </li>
+</ul>
+
