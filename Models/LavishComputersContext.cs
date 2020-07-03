@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace GeorgianConnects.Models
 {
-    public partial class LavishComputersContext : DbContext
+    public partial class LavishComputersContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public LavishComputersContext()
         {
