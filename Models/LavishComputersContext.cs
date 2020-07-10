@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace GeorgianConnects.Models
 {
+    //last pyrameter indicates the PK of the user value is a string.
     public partial class LavishComputersContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public LavishComputersContext()
@@ -26,13 +27,16 @@ namespace GeorgianConnects.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=LavishComputers;Integrated Security=True");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=LavishComputers;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // ADD to get identity to work! THIS IS A BUG FIXXXX!!!
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Cart>(entity =>
             {
                 entity.Property(e => e.CartId).IsUnicode(false);

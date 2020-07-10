@@ -31,8 +31,16 @@ namespace GeorgianConnects
             services.AddDbContext<LavishComputersContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<LavishComputersContext>();
+            //Configure Identity to Work with DBase
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+            .AddDefaultUI()
+            .AddRoles<ApplicationRole>()
+            .AddRoleManager<RoleManager<ApplicationRole>>()
+            .AddEntityFrameworkStores<LavishComputersContext>()
+            .AddDefaultTokenProviders();
+
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<LavishComputersContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
