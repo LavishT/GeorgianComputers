@@ -119,6 +119,7 @@ namespace GeorgianConnects.Controllers
         }
 
         // GET: Categories/Delete/5
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
